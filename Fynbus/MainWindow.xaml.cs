@@ -12,14 +12,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Fynbus.Controller;
 
 namespace Fynbus {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window {
+        Controller.Controller _controller;
         public MainWindow() {
+            _controller = new Controller.Controller();
             InitializeComponent();
+            ListCompanies.ItemsSource = _controller.ViewAllCompanies();
         }
     }
 }

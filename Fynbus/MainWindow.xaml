@@ -3,6 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <ListView Name="ListCompanies" HorizontalAlignment="Left" Height="182" VerticalAlignment="Top" Width="439" Margin="38,45,0,0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="CVR" Width="50" DisplayMemberBinding="{Binding CVR}" />
+                    <GridViewColumn Header="OfferNumber" Width="150" DisplayMemberBinding="{Binding OfferNumber}" />
+                    <GridViewColumn Header="FKType" Width="150" DisplayMemberBinding="{Binding FKType}" />
+                    <GridViewColumn Header="FKPermit" Width="150" DisplayMemberBinding="{Binding FKPermit}" />
+                    <GridViewColumn Header="FKTrafficCompany" Width="150" DisplayMemberBinding="{Binding FKTrafficCompany}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
     </Grid>
 </Window>

@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Fynbus.Model {
-    class CompanyType {
+    class TrafficCompany {
         public int ID { get; set; }
         public string Name { get; set; }
-        public CompanyType(int id, string name) {
+         public TrafficCompany(int id, string name) {
             this.ID = id;
             this.Name = name;
         }
-        public CompanyType() { }
+         public TrafficCompany() { }
     }
 }

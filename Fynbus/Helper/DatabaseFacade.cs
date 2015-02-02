@@ -10,7 +10,7 @@ namespace Fynbus.Helper {
     class DatabaseFacade {
         string DBConnectionString = "Server=ealdb1.eal.local; User ID=ejl04_usr; Password=Baz1nga4; Database=EJL04_DB";
 
-        public Model.CompanyType GetCompanyType(int id) {
+        public Model.CompanyType GetCompanyType(string id) {
             SqlConnection conn = new SqlConnection(DBConnectionString);
             Model.CompanyType _CompanyType = new Model.CompanyType();
 
@@ -38,7 +38,7 @@ namespace Fynbus.Helper {
             }
             return _CompanyType;
         }
-        public Model.Permit GetPermit(int number) {
+        public Model.Permit GetPermit(string number) {
             SqlConnection conn = new SqlConnection(DBConnectionString);
             Model.Permit _Permit = new Model.Permit();
 
@@ -53,7 +53,7 @@ namespace Fynbus.Helper {
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read()) {
-                    _Permit = new Model.Permit(int.Parse(reader["Number"].ToString()), reader["Permit_Type"].ToString(), Convert.ToDateTime(reader["Valid_Until"].ToString()));
+                    _Permit = new Model.Permit(reader["Number"].ToString(), reader["Permit_Type"].ToString(), Convert.ToDateTime(reader["Valid_Until"].ToString()));
                 }
                 reader.Close();
             }
@@ -66,7 +66,7 @@ namespace Fynbus.Helper {
             }
             return _Permit;
         }
-        public Model.TrafficCompany GetTrafficCompany(int id) {
+        public Model.TrafficCompany GetTrafficCompany(string id) {
             SqlConnection conn = new SqlConnection(DBConnectionString);
             Model.TrafficCompany _TrafficCompany = new Model.TrafficCompany();
 
@@ -94,8 +94,6 @@ namespace Fynbus.Helper {
             }
             return _TrafficCompany;
         }
-
-
         public List<Model.Company> GetAllCompanies() {
             SqlConnection conn = new SqlConnection(DBConnectionString);
             List<Model.Company> _Companies = new List<Model.Company>();
@@ -109,7 +107,7 @@ namespace Fynbus.Helper {
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read()) {
-                    _Companies.Add(new Model.Company(int.Parse(reader["CVR"].ToString()), reader["Name"].ToString(), int.Parse(reader["Offer_Number"].ToString()), int.Parse(reader["FK_Type"].ToString()), int.Parse(reader["FK_Permit"].ToString()), int.Parse(reader["FK_Traffic_Company"].ToString())));
+                    _Companies.Add(new Model.Company(int.Parse(reader["CVR"].ToString()), reader["Name"].ToString(), int.Parse(reader["Offer_Number"].ToString()), reader["FK_Type"].ToString(), reader["FK_Permit"].ToString(), reader["FK_Traffic_Company"].ToString()));
                 }
                 reader.Close();
             }
@@ -121,6 +119,61 @@ namespace Fynbus.Helper {
                 conn.Dispose();
             }
             return _Companies;
+        }
+
+        public List<Model.Company> GetCompaniesFromTrafficCompanies(int fk_traffic_company) {
+            SqlConnection conn = new SqlConnection(DBConnectionString);
+            List<Model.Company> _Companies = new List<Model.Company>();
+
+            try {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("GetCompaniesFromTrafficCompanies", conn);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter parameter = new SqlParameter();
+                cmd.Parameters.Add(new SqlParameter("@fk_traffic_Company", fk_traffic_company));
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read()) {
+                    _Companies.Add(new Model.Company(int.Parse(reader["CVR"].ToString()), reader["Name"].ToString(), int.Parse(reader["Offer_Number"].ToString()), reader["FK_Type"].ToString(), reader["FK_Permit"].ToString(), reader["FK_Traffic_Company"].ToString()));
+                }
+                reader.Close();
+            }
+            catch (SqlException e) {
+                System.Windows.MessageBox.Show(e.Message);
+            }
+            finally {
+                conn.Close();
+                conn.Dispose();
+            }
+            return _Companies;
+        }
+        public List<Model.TrafficCompany> GetAllTrafficCompanies() {
+            SqlConnection conn = new SqlConnection(DBConnectionString);
+            List<Model.TrafficCompany> _TrafficCompanies = new List<Model.TrafficCompany>();
+
+            try {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("GetAllTrafficCompanies", conn);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read()) {
+                    _TrafficCompanies.Add(new Model.TrafficCompany(int.Parse(reader["ID"].ToString()), reader["Name"].ToString()));
+                }
+                reader.Close();
+            }
+            catch (SqlException e) {
+                System.Windows.MessageBox.Show(e.Message);
+            }
+            finally {
+                conn.Close();
+                conn.Dispose();
+            }
+            return _TrafficCompanies;
         }
     }
 }

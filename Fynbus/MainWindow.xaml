@@ -1,20 +1,20 @@
 ﻿<Window x:Class="Fynbus.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="897.839">
     <Grid>
-        <ListView Name="ListCompanies" HorizontalAlignment="Left" Height="182" VerticalAlignment="Top" Width="439" Margin="38,45,0,0">
+        <ListView Name="ListCompanies" HorizontalAlignment="Left" Height="272" VerticalAlignment="Top" Width="873" Margin="10,37,0,0">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Name}" />
-                    <GridViewColumn Header="CVR" Width="50" DisplayMemberBinding="{Binding CVR}" />
-                    <GridViewColumn Header="OfferNumber" Width="150" DisplayMemberBinding="{Binding OfferNumber}" />
-                    <GridViewColumn Header="FKType" Width="150" DisplayMemberBinding="{Binding FKType}" />
-                    <GridViewColumn Header="FKPermit" Width="150" DisplayMemberBinding="{Binding FKPermit}" />
-                    <GridViewColumn Header="FKTrafficCompany" Width="150" DisplayMemberBinding="{Binding FKTrafficCompany}" />
+                    <GridViewColumn Header="Name" Width="70" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="CVR" Width="80" DisplayMemberBinding="{Binding CVR}" />
+                    <GridViewColumn Header="Tildbudsnr." Width="80" DisplayMemberBinding="{Binding OfferNumber}" />
+                    <GridViewColumn Header="Type" Width="70" DisplayMemberBinding="{Binding FKType}" />
+                    <GridViewColumn Header="Tilladselses nr." Width="90" DisplayMemberBinding="{Binding FKPermit}" />
+                    <GridViewColumn Header="Trafikselskab" Width="120" DisplayMemberBinding="{Binding FKTrafficCompany}" />
                 </GridView>
             </ListView.View>
         </ListView>
-
+        <ComboBox Name="ComboBoxTrafficCompany" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="10,10,0,0" SelectionChanged="ComboBoxTrafficCompany_SelectionChanged" Loaded="ComboBoxTrafficCompany_loaded"/>
     </Grid>
 </Window>

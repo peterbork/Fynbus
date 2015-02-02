@@ -24,6 +24,24 @@ namespace Fynbus {
             _controller = new Controller.Controller();
             InitializeComponent();
             ListCompanies.ItemsSource = _controller.ViewAllCompanies();
+            foreach (Model.TrafficCompany _TrafficCompany in _controller.ViewAllTrafficCompanies())
+	        {
+                ComboBoxTrafficCompany.Items.Add(_TrafficCompany.Name);
+	        }
+            ComboBoxTrafficCompany.Items.Add("Vis alle");
+        }
+
+        private void ComboBoxTrafficCompany_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            if (ComboBoxTrafficCompany.SelectedIndex == ComboBoxTrafficCompany.Items.Count - 1) {
+                ListCompanies.ItemsSource = _controller.ViewAllCompanies();
+            }
+            else {
+                ListCompanies.ItemsSource = _controller.ViewAllCompaniesFromTrafficCompany(ComboBoxTrafficCompany.SelectedIndex + 1);
+            }
+        }
+
+        private void ComboBoxTrafficCompany_loaded(object sender, RoutedEventArgs e) {
+            ComboBoxTrafficCompany.SelectedIndex = ComboBoxTrafficCompany.Items.Count - 1;
         }
     }
 }

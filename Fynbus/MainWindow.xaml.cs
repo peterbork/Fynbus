@@ -20,7 +20,7 @@ namespace Fynbus {
     /// </summary>
     public partial class MainWindow : Window {
         Controller.Controller _controller;
-        public static string selectedCompany = "";
+        public static int selectedCompany;
         public MainWindow() {
             _controller = new Controller.Controller();
             InitializeComponent();
@@ -46,9 +46,14 @@ namespace Fynbus {
         }
 
         private void ListCompanies_MouseDoubleClick(object sender, MouseButtonEventArgs e) {
+            //Model.Company company = (Model.Company)cmd.DataContext;
+            ListView cmd = (ListView)sender;
 
-
-            //_controller.newCompany() = ListCompanies.SelectedItem;
+            if (cmd.SelectedItem is Model.Company) {
+                Model.Company company = (Model.Company)cmd.SelectedItem;
+                ListCompanies.SelectedItem = company;
+                selectedCompany = company.CVR;
+            }
             viewVehicles window = new viewVehicles();
             window.Show();
 

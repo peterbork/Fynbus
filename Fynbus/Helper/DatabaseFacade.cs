@@ -175,5 +175,34 @@ namespace Fynbus.Helper {
             }
             return _TrafficCompanies;
         }
+
+        public List<Model.Vehicle> GetVehicleFromCVR(int cvr) {
+            SqlConnection conn = new SqlConnection(DBConnectionString);
+            List<Model.Vehicle> _vehicles = new List<Model.Vehicle>();
+
+            try {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("GetVehicleFromCVR", conn);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter parameter = new SqlParameter();
+                cmd.Parameters.Add(new SqlParameter("@CVR", cvr));
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read()) {
+                    _vehicles.Add(new Model.Vehicle(reader["Reg_Number"].ToString(), int.Parse(reader["Vehicle_Number"].ToString()), reader["FK_Company"].ToString(), reader["FK_Vehicle_Type"].ToString(), reader["Phone_Number"].ToString(), int.Parse(reader["FK_Home"].ToString()), reader["Issuing_Authorty"].ToString(), reader["Notice"].ToString(), int.Parse(reader["Warranty_Vehicle_Number"].ToString())));
+                }
+                reader.Close();
+            }
+            catch (SqlException e) {
+                System.Windows.MessageBox.Show(e.Message);
+            }
+            finally {
+                conn.Close();
+                conn.Dispose();
+            }
+            return _vehicles;
+        }
     }
 }

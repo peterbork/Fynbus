@@ -32,9 +32,9 @@ namespace Fynbus.Controller {
             List<Model.TrafficCompany> _TrafficCompanies = _DatabaseFacade.GetAllTrafficCompanies();
             return _TrafficCompanies;
         }
-        public Model.Company newCompany() {
-            Model.Company company = new Model.Company();
-            return company;
+        public List<Model.Vehicle> ViewVehiclesFromCVR(int cvr) {
+            List<Model.Vehicle> _Vehicles = _DatabaseFacade.GetVehicleFromCVR(cvr);
+            return _Vehicles;
         }
     }
 }

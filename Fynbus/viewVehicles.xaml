@@ -3,10 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="viewVehicles" Height="273.885" Width="860.773">
     <Grid>
-        <ListView HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="633" Margin="10,10,0,0">
+        <ListView Name="ListVehicles" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="633" Margin="10,10,0,0">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn Header="Reg Nr." Width="109" DisplayMemberBinding="{Binding RegNumber}" />
+                    <GridViewColumn Header="Bil Nr." Width="109" DisplayMemberBinding="{Binding VehicleNumber}" />
                 </GridView>
             </ListView.View>
         </ListView>

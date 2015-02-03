@@ -17,8 +17,12 @@ namespace Fynbus {
     /// Interaction logic for viewVehicles.xaml
     /// </summary>
     public partial class viewVehicles : Window {
+        Controller.Controller _controller;
         public viewVehicles() {
+            MessageBox.Show(""+MainWindow.selectedCompany);
+            _controller = new Controller.Controller();
             InitializeComponent();
+            ListVehicles.ItemsSource = _controller.ViewVehiclesFromCVR(MainWindow.selectedCompany);
         }
     }
 }

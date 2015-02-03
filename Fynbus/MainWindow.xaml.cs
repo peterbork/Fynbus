@@ -46,8 +46,9 @@ namespace Fynbus {
         }
 
         private void ListCompanies_MouseDoubleClick(object sender, MouseButtonEventArgs e) {
-            
-            
+
+
+            //_controller.newCompany() = ListCompanies.SelectedItem;
             viewVehicles window = new viewVehicles();
             window.Show();
 

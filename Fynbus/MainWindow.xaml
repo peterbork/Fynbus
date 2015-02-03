@@ -6,14 +6,14 @@
         <ListView Name="ListCompanies" HorizontalAlignment="Left" Height="272" VerticalAlignment="Top" Width="704" Margin="10,37,0,0" MouseDoubleClick="ListCompanies_MouseDoubleClick">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Name" Width="70" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Name" Width="109" DisplayMemberBinding="{Binding Name}" />
                     <GridViewColumn Header="CVR" Width="80" DisplayMemberBinding="{Binding CVR}" />
                     <GridViewColumn Header="Tildbudsnr." Width="80" DisplayMemberBinding="{Binding OfferNumber}" />
                     <GridViewColumn Header="Type" Width="80" DisplayMemberBinding="{Binding FKType}" />
                     <GridViewColumn Header="Trafikselskab" Width="90" DisplayMemberBinding="{Binding FKTrafficCompany}" />
                     <GridViewColumn Header="Tilladselsesnr." Width="90" DisplayMemberBinding="{Binding Permit.Number}" />
                     <GridViewColumn Header="Tilladelsestype" Width="90" DisplayMemberBinding="{Binding Permit.PermitType}" />
-                    <GridViewColumn Header="Gyldig indtil" Width="110" DisplayMemberBinding="{Binding Permit.ValidUntil}" />
+                    <GridViewColumn Header="Gyldig indtil" Width="75" DisplayMemberBinding="{Binding Permit.ValidUntil}" />
                 </GridView>
             </ListView.View>
         </ListView>

@@ -32,5 +32,9 @@ namespace Fynbus.Controller {
             List<Model.TrafficCompany> _TrafficCompanies = _DatabaseFacade.GetAllTrafficCompanies();
             return _TrafficCompanies;
         }
+        public Model.Company newCompany() {
+            Model.Company company = new Model.Company();
+            return company;
+        }
     }
 }

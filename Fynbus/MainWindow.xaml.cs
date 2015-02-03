@@ -20,6 +20,7 @@ namespace Fynbus {
     /// </summary>
     public partial class MainWindow : Window {
         Controller.Controller _controller;
+        public static string selectedCompany = "";
         public MainWindow() {
             _controller = new Controller.Controller();
             InitializeComponent();
@@ -44,11 +45,12 @@ namespace Fynbus {
             ComboBoxTrafficCompany.SelectedIndex = ComboBoxTrafficCompany.Items.Count - 1;
         }
 
-        private void ListCompanies_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            Model.Company selectedCompany = new Model.Company();
-            selectedCompany = ListCompanies.SelectedValue;
-            TextBoxCompanyInfo.Text = "Company: \n";
+        private void ListCompanies_MouseDoubleClick(object sender, MouseButtonEventArgs e) {
             
+            
+            viewVehicles window = new viewVehicles();
+            window.Show();
+
         }
     }
 }

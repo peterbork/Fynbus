@@ -3,19 +3,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="897.839">
     <Grid>
-        <ListView Name="ListCompanies" HorizontalAlignment="Left" Height="272" VerticalAlignment="Top" Width="525" Margin="10,37,0,0" SelectionChanged="ListCompanies_SelectionChanged">
+        <ListView Name="ListCompanies" HorizontalAlignment="Left" Height="272" VerticalAlignment="Top" Width="704" Margin="10,37,0,0" MouseDoubleClick="ListCompanies_MouseDoubleClick">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" Width="70" DisplayMemberBinding="{Binding Name}" />
                     <GridViewColumn Header="CVR" Width="80" DisplayMemberBinding="{Binding CVR}" />
                     <GridViewColumn Header="Tildbudsnr." Width="80" DisplayMemberBinding="{Binding OfferNumber}" />
                     <GridViewColumn Header="Type" Width="80" DisplayMemberBinding="{Binding FKType}" />
-                    <GridViewColumn Header="Tilladselses nr." Width="90" DisplayMemberBinding="{Binding FKPermit}" />
-                    <GridViewColumn Header="Trafikselskab" Width="120" DisplayMemberBinding="{Binding FKTrafficCompany}" />
+                    <GridViewColumn Header="Trafikselskab" Width="90" DisplayMemberBinding="{Binding FKTrafficCompany}" />
+                    <GridViewColumn Header="Tilladselsesnr." Width="90" DisplayMemberBinding="{Binding Permit.Number}" />
+                    <GridViewColumn Header="Tilladelsestype" Width="90" DisplayMemberBinding="{Binding Permit.PermitType}" />
+                    <GridViewColumn Header="Gyldig indtil" Width="110" DisplayMemberBinding="{Binding Permit.ValidUntil}" />
                 </GridView>
             </ListView.View>
         </ListView>
         <ComboBox Name="ComboBoxTrafficCompany" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="10,10,0,0" SelectionChanged="ComboBoxTrafficCompany_SelectionChanged" Loaded="ComboBoxTrafficCompany_loaded"/>
-        <TextBox Name="TextBoxCompanyInfo" HorizontalAlignment="Left" Height="272" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="161" Margin="540,37,0,0"/>
     </Grid>
 </Window>

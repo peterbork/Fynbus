@@ -53,7 +53,7 @@ namespace Fynbus.Helper {
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read()) {
-                    _Permit = new Model.Permit(reader["Number"].ToString(), reader["Permit_Type"].ToString(), Convert.ToDateTime(reader["Valid_Until"].ToString()));
+                    _Permit = new Model.Permit(reader["Number"].ToString(), reader["Permit_Type"].ToString(), DateTime.Parse(reader["Valid_Until"].ToString()));
                 }
                 reader.Close();
             }
@@ -107,7 +107,7 @@ namespace Fynbus.Helper {
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read()) {
-                    _Companies.Add(new Model.Company(int.Parse(reader["CVR"].ToString()), reader["Name"].ToString(), int.Parse(reader["Offer_Number"].ToString()), reader["FK_Type"].ToString(), reader["FK_Permit"].ToString(), reader["FK_Traffic_Company"].ToString()));
+                    _Companies.Add(new Model.Company(int.Parse(reader["CVR"].ToString()), reader["Name"].ToString(), int.Parse(reader["Offer_Number"].ToString()), reader["FK_Type"].ToString(), reader["FK_Traffic_Company"].ToString(), GetPermit(reader["FK_Permit"].ToString())));
                 }
                 reader.Close();
             }
@@ -136,7 +136,7 @@ namespace Fynbus.Helper {
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read()) {
-                    _Companies.Add(new Model.Company(int.Parse(reader["CVR"].ToString()), reader["Name"].ToString(), int.Parse(reader["Offer_Number"].ToString()), reader["FK_Type"].ToString(), reader["FK_Permit"].ToString(), reader["FK_Traffic_Company"].ToString()));
+                    _Companies.Add(new Model.Company(int.Parse(reader["CVR"].ToString()), reader["Name"].ToString(), int.Parse(reader["Offer_Number"].ToString()), reader["FK_Type"].ToString(), reader["FK_Traffic_Company"].ToString(), GetPermit(reader["FK_Permit"].ToString())));
                 }
                 reader.Close();
             }

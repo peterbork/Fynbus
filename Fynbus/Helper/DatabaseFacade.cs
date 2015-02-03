@@ -191,7 +191,7 @@ namespace Fynbus.Helper {
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read()) {
-                    _vehicles.Add(new Model.Vehicle(reader["Reg_Number"].ToString(), int.Parse(reader["Vehicle_Number"].ToString()), reader["FK_Company"].ToString(), reader["FK_Vehicle_Type"].ToString(), reader["Phone_Number"].ToString(), int.Parse(reader["FK_Home"].ToString()), reader["Issuing_Authorty"].ToString(), reader["Notice"].ToString(), int.Parse(reader["Warranty_Vehicle_Number"].ToString())));
+                    _vehicles.Add(new Model.Vehicle(reader["Reg_Number"].ToString(), int.Parse(reader["Vehicle_Number"].ToString()), reader["FK_Company"].ToString(), reader["FK_Vehicle_Type"].ToString(), reader["Phone_Number"].ToString(), int.Parse(reader["FK_Home"].ToString()), reader["Issuing_Authority"].ToString(), reader["Notice"].ToString(), int.Parse(reader["Warranty_Vehicle_Number"].ToString())));
                 }
                 reader.Close();
             }

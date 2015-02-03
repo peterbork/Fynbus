@@ -43,5 +43,12 @@ namespace Fynbus {
         private void ComboBoxTrafficCompany_loaded(object sender, RoutedEventArgs e) {
             ComboBoxTrafficCompany.SelectedIndex = ComboBoxTrafficCompany.Items.Count - 1;
         }
+
+        private void ListCompanies_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            Model.Company selectedCompany = new Model.Company();
+            selectedCompany = ListCompanies.SelectedValue;
+            TextBoxCompanyInfo.Text = "Company: \n";
+            
+        }
     }
 }

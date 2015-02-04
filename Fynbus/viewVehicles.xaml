@@ -6,17 +6,17 @@
         <ListView Name="ListVehicles" HorizontalAlignment="Left" Height="247" VerticalAlignment="Top" Width="946" Margin="0,0,-0.073,0">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Reg Nr." Width="80" DisplayMemberBinding="{Binding RegNumber}" />
-                    <GridViewColumn Header="Bil Nr." Width="80" DisplayMemberBinding="{Binding VehicleNumber}" />
+                    <GridViewColumn Header="Reg.nr." Width="70" DisplayMemberBinding="{Binding RegNumber}" />
+                    <GridViewColumn Header="Bilnr." Width="60" DisplayMemberBinding="{Binding VehicleNumber}" />
                     <GridViewColumn Header="Firmanavn" Width="100" DisplayMemberBinding="{Binding FKCompany}" />
                     <GridViewColumn Header="Biltype" Width="80" DisplayMemberBinding="{Binding FKVehicleType}" />
-                    <GridViewColumn Header="Telefon" Width="80" DisplayMemberBinding="{Binding PhoneNumber}" />
-                    <GridViewColumn Header="Addresse" Width="80" DisplayMemberBinding="{Binding Home.StreetAddress}" />
-                    <GridViewColumn Header="Postnr." Width="80" DisplayMemberBinding="{Binding Home.Postcode}" />
+                    <GridViewColumn Header="Telefon" Width="70" DisplayMemberBinding="{Binding PhoneNumber}" />
+                    <GridViewColumn Header="Adresse" Width="100" DisplayMemberBinding="{Binding Home.StreetAddress}" />
+                    <GridViewColumn Header="Postnr." Width="50" DisplayMemberBinding="{Binding Home.Postcode}" />
                     <GridViewColumn Header="Region" Width="80" DisplayMemberBinding="{Binding Home.Region}" />
-                    <GridViewColumn Header="Udstedet" Width="80" DisplayMemberBinding="{Binding IssuingAuthority}" />
-                    <GridViewColumn Header="Bemærkninger" Width="100" DisplayMemberBinding="{Binding Notice}" />
-                    <GridViewColumn Header="Garanti nr." Width="80" DisplayMemberBinding="{Binding WarrantyVehicleNumber}" />
+                    <GridViewColumn Header="Udstedt af" Width="120" DisplayMemberBinding="{Binding IssuingAuthority}" />
+                    <GridViewColumn Header="Bemærkninger" Width="130" DisplayMemberBinding="{Binding Notice}" />
+                    <GridViewColumn Header="Garantinr." Width="75" DisplayMemberBinding="{Binding WarrantyVehicleNumber}" />
                 </GridView>
             </ListView.View>
         </ListView>

@@ -1,9 +1,9 @@
 ﻿<Window x:Class="Fynbus.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="897.839">
+        Title="MainWindow" Height="350" Width="731.473">
     <Grid>
-        <ListView Name="ListCompanies" HorizontalAlignment="Left" Height="272" VerticalAlignment="Top" Width="704" Margin="10,37,0,0" MouseDoubleClick="ListCompanies_MouseDoubleClick">
+        <ListView Name="ListCompanies" HorizontalAlignment="Left" Height="286" VerticalAlignment="Top" Width="726" Margin="0,37,0,0" MouseDoubleClick="ListCompanies_MouseDoubleClick">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" Width="109" DisplayMemberBinding="{Binding Name}" />
@@ -18,5 +18,6 @@
             </ListView.View>
         </ListView>
         <ComboBox Name="ComboBoxTrafficCompany" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="10,10,0,0" SelectionChanged="ComboBoxTrafficCompany_SelectionChanged" Loaded="ComboBoxTrafficCompany_loaded"/>
+        <Label Content="Dobbeltklik på et firma for at se tilhørende biler" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="132,8,0,0"/>
     </Grid>
 </Window>

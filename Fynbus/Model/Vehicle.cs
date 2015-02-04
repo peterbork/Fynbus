@@ -15,14 +15,15 @@ namespace Fynbus.Model {
         public string IssuingAuthority { get; set; }
         public string Notice { get; set; }
         public int WarrantyVehicleNumber { get; set; }
+        public Home Home { get; set; }
 
-        public Vehicle(string regnumber, int vehiclenumber, string fkcompany, string fkvehicletype, string phonenumber, int fkhome, string issuingauthority, string notice, int warrantyvehiclenumber) {
+        public Vehicle(string regnumber, int vehiclenumber, string fkcompany, string fkvehicletype, string phonenumber, Home home, string issuingauthority, string notice, int warrantyvehiclenumber) {
             this.RegNumber = regnumber;
             this.VehicleNumber = vehiclenumber;
             this.FKCompany = fkcompany;
             this.FKVehicleType = fkvehicletype;
             this.PhoneNumber = phonenumber;
-            this.FKHome = fkhome;
+            this.Home = home;
             this.IssuingAuthority = issuingauthority;
             this.Notice = notice;
             this.WarrantyVehicleNumber = warrantyvehiclenumber;

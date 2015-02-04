@@ -10,11 +10,8 @@ namespace Fynbus.Model {
         public string Name { get; set; }
         public int OfferNumber { get; set; }
         public string FKType { get; set; }
-        //public string FKPermit { get; set; }
         public string FKTrafficCompany { get; set; }
-
         public Permit Permit { get; set; }
-
         public Company(int cvr, string name, int offernumber, string fktype, string fktrafficcompany, Permit Permit) {
             this.CVR = cvr;
             this.Name = name;

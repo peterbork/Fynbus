@@ -17,7 +17,6 @@ namespace Fynbus.Model {
             this.Name = name;
             this.OfferNumber = offernumber;
             this.FKType = fktype;
-            //this.FKPermit = fkpermit;
             this.FKTrafficCompany = fktrafficcompany;
             this.Permit = Permit;
         }
